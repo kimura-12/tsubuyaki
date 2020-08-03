@@ -45,7 +45,7 @@ public class TsubuyakiController {
     @GetMapping("/read")
     String showResult(@RequestParam("keyward") String keyward, Model model){
         List<Tsubuyaki> list = ts.getResult(keyward); // 検索結果の取得
-        model.addAttribute("tsubuyakiList", list);   //モデル属性にリストをセット
+        model.addAttribute("resultList", list);   //モデル属性にリストをセット
         model.addAttribute("tsubuyakiForm", new TsubuyakiForm());  //空フォームをセット
         return "result_list"; //リスト画面を返す
     }
