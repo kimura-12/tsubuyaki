@@ -42,7 +42,7 @@ public class TsubuyakiController {
         return "redirect:/read"; //メイン画面に転送
     }
     //検索結果を表示
-    @GetMapping("/read")
+    @GetMapping("/read/result")
     String showResult(@RequestParam("keyward") String keyward, Model model){
         List<Tsubuyaki> list = ts.getResult(keyward); // 検索結果の取得
         model.addAttribute("resultList", list);   //モデル属性にリストをセット
