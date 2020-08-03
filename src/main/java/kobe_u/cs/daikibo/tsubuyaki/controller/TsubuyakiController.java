@@ -40,6 +40,14 @@ public class TsubuyakiController {
         ts.postTsubuyaki(t);
         return "redirect:/read"; //メイン画面に転送
     }
+    //検索結果を表示
+    @GetMapping("/read")
+    String showResult(Model model){
+        List<Tsubuyaki> list = ts.getResult(); // 検索結果の取得
+        model.addAttribute("tsubuyakiList", list);   //モデル属性にリストをセット
+        model.addAttribute("tsubuyakiForm", new TsubuyakiForm());  //空フォームをセット
+        return "result_list"; //リスト画面を返す
+    }
 
   
 }
